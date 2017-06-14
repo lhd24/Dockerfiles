@@ -30,13 +30,13 @@ RUN curl -L http://mirror.reverse.net/pub/apache/hadoop/common/hadoop-${HADOOP_V
 	&& hdfs namenode -format
 	
 # Config Hadoop
-COPY entrypoint.sh /
+COPY entrypoint.sh ${HADOOP_INSTALL}
 COPY conf  ${HADOOP_INSTALL}/etc/hadoop/
-RUN chmod +x /entrypoint.sh
+RUN chmod +x ${HADOOP_INSTALL}/entrypoint.sh
 
 EXPOSE 22 50070 19888 8088
 
 # Change to root folder
 WORKDIR /root
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ${HADOOP_INSTALL}/entrypoint.sh

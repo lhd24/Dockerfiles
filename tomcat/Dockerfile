@@ -9,4 +9,9 @@ RUN curl -L http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v${TOMCAT
     | tar -zx -C /opt \
     && ln -s /opt/apache-tomcat-${TOMCAT_VERSION} ${TOMCAT_HOME}
 	
+COPY entrypoint.sh ${TOMCAT_HOME}
+RUN chmod +x ${TOMCAT_HOME}/entrypoint.sh
+
 EXPOSE 8080
+
+ENTRYPOINT ${TOMCAT_HOME}/entrypoint.sh
