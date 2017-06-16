@@ -39,4 +39,4 @@ EXPOSE 22 50070 19888 8088
 # Change to root folder
 WORKDIR /root
 
-ENTRYPOINT ${HADOOP_INSTALL}/entrypoint.sh
+ENTRYPOINT ["/opt/hadoop/entrypoint.sh"]
