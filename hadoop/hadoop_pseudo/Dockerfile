@@ -1,5 +1,4 @@
 FROM haidong/docker-java
-
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions
@@ -23,7 +22,7 @@ RUN sed -i '/StrictHostKeyChecking/s/#//g' /etc/ssh/ssh_config \
 	&& sed -i 'i HADOOP_INSTALL=/opt/hadoop' /etc/environment \
 	&& sed -i '/^PATH/s:"$:\:/opt/java/bin\:/opt/hadoop/bin\:/opt/hadoop/sbin":' /etc/environment
 
-# Download and extract jdk to opt folder
+# Download and extract hadoop to opt folder
 RUN curl -L http://mirror.reverse.net/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz \    
     | tar -zx -C /opt \
     && ln -s /opt/hadoop-${HADOOP_VERSION} /opt/hadoop \

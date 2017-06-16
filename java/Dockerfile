@@ -26,7 +26,7 @@ RUN apt-get update && \
 RUN curl -LH "Cookie: oraclelicense=accept-securebackup-cookie" \
        http://download.oracle.com/otn-pub/java/jdk/${JDK_VERSION_UPDATE_BUILD}/${JDK_URL_HASH}/jdk-${JDK_VERSION_UPDATE_DISTRO_ARCH}.tar.gz \    
     | tar -zx -C /opt \
-    && ln -s /opt/${JDK_FOLDER} /opt/java
+    && ln -s /opt/${JDK_FOLDER} ${JAVA_HOME}
 	
 # Change to root folder
 WORKDIR /root

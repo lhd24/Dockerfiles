@@ -6,7 +6,7 @@ ENV NEXUS_VERSION=2.12.0-01 \
 	NEXUS_HOME=/opt/sonatype/nexus \
 	SONATYPE_WORK=/sonatype-work
 
-# Download and extract jdk to opt folder
+# Download and extract nexus to opt folder
 # sed -i '/application-port/s/[0-9].*$/9091/g' ${NEXUS_HOME}/nexus-${NEXUS_VERSION}/conf/nexus.properties 
 RUN mkdir -p ${NEXUS_HOME} \
 	&& curl -L http://download.sonatype.com/nexus/oss/nexus-${NEXUS_VERSION}-bundle.tar.gz \ 
