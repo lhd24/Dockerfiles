@@ -2,8 +2,8 @@
 FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
-ENV NEXUS_VERSION=2.12.0-01 \
-	NEXUS_HOME=/opt/sonatype/nexus \
+ARG NEXUS_VERSION=2.12.0-01
+ENV NEXUS_HOME=/opt/sonatype/nexus \
 	SONATYPE_WORK=/sonatype-work
 
 # Download and extract nexus to opt folder
