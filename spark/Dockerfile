@@ -1,4 +1,4 @@
-FROM haidong/docker-hadoop
+FROM haidong/hadoop
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions

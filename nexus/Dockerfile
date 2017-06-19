@@ -1,5 +1,5 @@
 # https://github.com/sonatype/docker-nexus	oss
-FROM haidong/docker-java
+FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
 ENV NEXUS_VERSION=2.12.0-01 \

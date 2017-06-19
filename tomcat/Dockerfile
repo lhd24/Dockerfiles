@@ -1,4 +1,4 @@
-FROM haidong/docker-java
+FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
 ENV TOMCAT_VERSION=8.5.15
