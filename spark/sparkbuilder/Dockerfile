@@ -21,9 +21,13 @@ VOLUME "$USER_HOME_DIR/.m2"
 
 
 # Download and extract spark to opt folder
-ARG SPARK_VERSION 2.1.1
+ARG SPARK_VERSION=2.1.1
 ENV SPARK_HOME /opt/spark
 
-RUN curl -L http://mirror.hust.edu.cn/apache/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}.tgz \    
+RUN curl -L http://mirror.bit.edu.cn/apache/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}.tgz \    
     | tar -zx -C /opt \
     && ln -s /opt/spark-${SPARK_VERSION} ${SPARK_HOME}
+
+WORKDIR ${SPARK_HOME}
+
+RUN mvn -Pyarn -Phadoop-2.7 -Dhadoop.version=2.8.0 -DskipTests clean package
