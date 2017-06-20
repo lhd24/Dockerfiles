@@ -17,8 +17,9 @@ RUN mkdir -p ${MAVEN_HOME} \
   && tar -xzf /tmp/apache-maven.tar.gz -C ${MAVEN_HOME} --strip-components=1 \
   && rm -f /tmp/apache-maven.tar.gz 
 
-VOLUME "$USER_HOME_DIR/.m2"
+COPY settings.xml  ${MAVEN_HOME}/conf/
 
+VOLUME "$USER_HOME_DIR/.m2"
 
 # Download and extract spark to opt folder
 ARG SPARK_VERSION=2.1.1
