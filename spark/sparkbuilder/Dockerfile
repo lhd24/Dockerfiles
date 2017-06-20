@@ -23,6 +23,7 @@ VOLUME "$USER_HOME_DIR/.m2"
 # Download and extract spark to opt folder
 ARG SPARK_VERSION=2.1.1
 ENV SPARK_HOME /opt/spark
+ENV PATH $PATH:$SPARK_HOME/bin
 
 RUN curl -L http://mirror.bit.edu.cn/apache/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}.tgz \    
     | tar -zx -C /opt \
