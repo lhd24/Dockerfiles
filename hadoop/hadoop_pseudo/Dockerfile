@@ -25,15 +25,26 @@ RUN sed -i '/StrictHostKeyChecking/s/#//g' /etc/ssh/ssh_config \
 # Download and extract hadoop to opt folder
 RUN curl -L http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz \    
     | tar -zx -C /opt \
-    && ln -s /opt/hadoop-${HADOOP_VERSION} /opt/hadoop \
-	&& hdfs namenode -format
+    && ln -s /opt/hadoop-${HADOOP_VERSION} /opt/hadoop
 	
 # Config Hadoop
 COPY entrypoint.sh ${HADOOP_INSTALL}
 COPY conf  ${HADOOP_INSTALL}/etc/hadoop/
 RUN chmod +x ${HADOOP_INSTALL}/entrypoint.sh
 
-EXPOSE 22 50070 19888 8088 50075
+# EXPOSE 22 50070 19888 8088 50075
+
+# Hdfs ports
+EXPOSE 50010 50020 50070 50075 50090 8020 9000
+
+# Mapred ports
+EXPOSE 10020 19888
+
+# Yarn ports
+EXPOSE 8030 8031 8032 8033 8040 8042 8088
+
+# Other ports
+EXPOSE 22
 
 # Change to root folder
 WORKDIR /root

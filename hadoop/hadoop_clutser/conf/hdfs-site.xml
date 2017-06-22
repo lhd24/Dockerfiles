@@ -5,4 +5,12 @@
     <name>dfs.replication</name>
     <value>2</value>
   </property>
+  <property>
+    <name>dfs.namenode.secondary.http-address</name>
+    <value>s1:50090</value>
+  </property>
+  <property>
+    <name>dfs.namenode.secondary.https-address</name>
+    <value>s1:50091</value>
+  </property>
 </configuration>
