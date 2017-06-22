@@ -2,7 +2,7 @@ FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions
-ARG HADOOP_VERSION=2.8.0
+ARG HADOOP_VERSION=2.7.1
 ENV HADOOP_INSTALL=/opt/hadoop
 ENV PATH $PATH:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin
 
@@ -23,7 +23,7 @@ RUN sed -i '/StrictHostKeyChecking/s/#//g' /etc/ssh/ssh_config \
 	&& sed -i '/^PATH/s:"$:\:/opt/java/bin\:/opt/hadoop/bin\:/opt/hadoop/sbin":' /etc/environment
 
 # Download and extract hadoop to opt folder
-RUN curl -L http://mirror.reverse.net/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz \    
+RUN curl -L http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz \    
     | tar -zx -C /opt \
     && ln -s /opt/hadoop-${HADOOP_VERSION} /opt/hadoop \
 	&& hdfs namenode -format

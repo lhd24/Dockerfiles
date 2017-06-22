@@ -32,4 +32,4 @@ RUN curl -L http://mirror.bit.edu.cn/apache/spark/spark-${SPARK_VERSION}/spark-$
 
 WORKDIR ${SPARK_HOME}
 
-RUN mvn -Pyarn -Phadoop-2.7 -Dhadoop.version=2.8.0 -DskipTests clean package
+RUN mvn -Pyarn -Phadoop-2.7 -Dhadoop.version=2.7.1 -DskipTests clean package
