@@ -15,4 +15,4 @@ WORKDIR /root
 
 EXPOSE 443/tcp 1194/udp 943/tcp
 
-CMD ["/usr/local/openvpn_as/scripts/openvpnas" "-n"]
+CMD ["/usr/local/openvpn_as/scripts/openvpnas","-n"]
