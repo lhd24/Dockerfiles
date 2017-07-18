@@ -1,7 +1,7 @@
 FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
-ARG TOMCAT_VERSION=8.5.15
+ARG TOMCAT_VERSION=8.5.16
 ENV TOMCAT_HOME=/opt/tomcat
 
 # Download and extract tomcat to opt folder
