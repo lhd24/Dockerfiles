@@ -9,4 +9,8 @@
     <name>dfs.journalnode.edits.dir</name>
     <value>/path/to/journal/node/local/data</value>
   </property>
+  <property>
+    <name>ha.zookeeper.quorum</name>
+    <value>zoo1:2181,zoo1:2181,zoo1:2181</value>
+  </property>
 </configuration>

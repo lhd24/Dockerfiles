@@ -33,4 +33,8 @@
     <name>dfs.namenode.shared.edits.dir</name>
     <value>qjournal://n2:8485;n3:8485;n4:8485/myclusterQj</value>
   </property>
+  <property>
+   <name>dfs.ha.automatic-failover.enabled</name>
+   <value>true</value>
+  </property>
 </configuration>
