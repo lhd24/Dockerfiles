@@ -2,21 +2,21 @@ FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
 ARG ZOOKEEPER_VERSION=3.4.10
-ARG ZOOKEEPER_HOME=/opt/zookeeper
-ARG ZOOKEEPER_DATA=/var/lib/zookeeper
+ENV ZOOKEEPER_HOME=/opt/zookeeper
 
-ENV myid 1
+ENV PATH $PATH:${ZOOKEEPER_HOME}/bin	
 
 RUN curl -L https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz \    
     | tar -zx -C /opt \
-    && ln -s /opt/zookeeper-${ZOOKEEPER_VERSION} ${ZOOKEEPER_HOME} \
-	$$ mkdir -p ${ZOOKEEPER_DATA} \
-	$$ echo $env:myid > ${ZOOKEEPER_DATA}/myid
+    && ln -s /opt/zookeeper-${ZOOKEEPER_VERSION} ${ZOOKEEPER_HOME}
 
-COPY conf  ${ZOOKEEPER_HOME}/conf/
-
-ENV PATH $PATH:{ZOOKEEPER_HOME}/bin	
+COPY entrypoint.sh ${ZOOKEEPER_HOME}
+RUN chmod +x ${ZOOKEEPER_HOME}/entrypoint.sh
 
 EXPOSE 2181 2888 3888
 
-CMD zkServer.sh start
+VOLUME /var/zookeeper
+
+ENTRYPOINT ["/opt/zookeeper/entrypoint.sh"]
+
+CMD zkServer.sh start-foreground
