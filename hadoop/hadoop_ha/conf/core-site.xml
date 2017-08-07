@@ -6,8 +6,8 @@
     <value>hdfs://mycluster/</value>  
   </property>
   <property>
-    <name>dfs.journalnode.edits.dir</name>
-    <value>/path/to/journal/node/local/data</value>
+    <name>hadoop.tmp.dir</name>
+    <value>/opt/hadoop</value>
   </property>
   <property>
     <name>ha.zookeeper.quorum</name>
