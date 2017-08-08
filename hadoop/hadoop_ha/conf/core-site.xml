@@ -7,7 +7,7 @@
   </property>
   <property>
     <name>hadoop.tmp.dir</name>
-    <value>/opt/hadoop</value>
+    <value>/var/hadoop</value>
   </property>
   <property>
     <name>ha.zookeeper.quorum</name>
