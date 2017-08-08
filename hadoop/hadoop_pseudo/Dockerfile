@@ -1,4 +1,4 @@
-FROM haidong/sshCluster
+FROM haidong/ssh_cluster
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions
