@@ -43,7 +43,7 @@
   </property>
   <property>
     <name>dfs.journalnode.edits.dir</name>
-    <value>/opt/journal/data</value>
+    <value>/var/journal/data</value>
   </property>
   <property>
     <name>dfs.ha.automatic-failover.enabled</name>
