@@ -1,4 +1,4 @@
-FROM haidong/java
+FROM haidong/sshCluster
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions
@@ -9,16 +9,7 @@ ENV PATH $PATH:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin
 # Change to tmp folder
 WORKDIR /tmp
 
-# SSH Key Passwordless
-RUN apt-get install -y ssh \
-    && ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa \
-    && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys \
-    && chmod 0600 ~/.ssh/authorized_keys
-
-# Config SSH and ENV
-RUN sed -i '/StrictHostKeyChecking/s/#//g' /etc/ssh/ssh_config \
-    && sed -i '/StrictHostKeyChecking/s/ask/no/g' /etc/ssh/ssh_config \
-	&& sed -i 'i JAVA_HOME=/opt/java' /etc/environment \
+RUN sed -i 'i JAVA_HOME=/opt/java' /etc/environment \
 	&& sed -i 'i HADOOP_INSTALL=/opt/hadoop' /etc/environment \
 	&& sed -i '/^PATH/s:"$:\:/opt/java/bin\:/opt/hadoop/bin\:/opt/hadoop/sbin":' /etc/environment
 
