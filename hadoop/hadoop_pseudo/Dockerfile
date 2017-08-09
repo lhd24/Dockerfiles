@@ -2,7 +2,7 @@ FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions
-ARG HADOOP_VERSION=2.7.4
+ARG HADOOP_VERSION=2.7.3
 ENV HADOOP_INSTALL=/opt/hadoop
 ENV PATH $PATH:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin
 
