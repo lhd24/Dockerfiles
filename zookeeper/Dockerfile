@@ -1,4 +1,4 @@
-FROM haidong/ssh_cluster
+FROM haidong/java
 MAINTAINER haidong <383623085@qq.com>
 
 ARG ZOOKEEPER_VERSION=3.4.10
