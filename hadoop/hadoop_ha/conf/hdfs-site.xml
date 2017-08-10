@@ -27,10 +27,10 @@
   </property>
   <property>
     <name>dfs.namenode.shared.edits.dir</name>
-    <value>qjournal://n3:8485;n4:8485;n5:8485/myclusterQj</value>
+    <value>qjournal://n3:8485;n4:8485;n5:8485/mycluster</value>
   </property>
   <property>
-    <name>dfs.client.failover.proxy.provider.myclusterQj</name>
+    <name>dfs.client.failover.proxy.provider.mycluster</name>
     <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
   </property>
   <property>
