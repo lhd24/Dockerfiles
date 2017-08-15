@@ -1,7 +1,7 @@
 FROM haidong/hadoop
 MAINTAINER haidong <383623085@qq.com>
 
-ARG HIVE_VERSION=1.2.1
+ARG HIVE_VERSION=1.2.2
 
 ENV HIVE_HOME=/opt/hive
 ENV PATH $PATH:$HIVE_HOME/bin
