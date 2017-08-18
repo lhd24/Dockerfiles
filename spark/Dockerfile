@@ -2,7 +2,7 @@ FROM haidong/hadoop
 MAINTAINER haidong <383623085@qq.com>
 
 # Set environment variables for program versions
-ARG SPARK_VERSION 2.1.1
+ARG SPARK_VERSION=2.1.1
 ENV SPARK_HOME /opt/spark
 
 # Download and extract spark to opt folder
